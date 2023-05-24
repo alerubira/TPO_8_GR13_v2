@@ -49,12 +49,56 @@ public class InscripcionData {
     }
     /*
     public List<Inscripcion> obtenerInscripciones(){
+        List<Inscripcion> inscripciones = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM inscripcion WHERE  ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Inscripcion inscripcion = new Inscripcion();
+                Alumno al new Alumno();
+                Materia ma new Materia();
+                inscripcion.setIdInscripcion(rs.getInt("idInscripcion"));
+                inscripcion.setNota(rs.getDouble("nota"));
+                inscripcion.setAlumno(al.buscarAlumno(rs.getInt("idAlumno")));
+                inscripcion.setMateria(ma.buscarMateria(rs.getInt("idMateria"));
+                inscripciones.add(inscripcion);
+            }
+            ps.close();
+           
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Inscripcion "+ex.getMessage());
+        }
+        return inscripciones;
         
-        return ;
     }
     
     public List<Inscripcion> obtenerInscripcionPorAlumno(int id){
-        return;
+    List<Inscripcion> inscripciones = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM inscripcion WHERE idAlumno = ?  ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            ps.setInt(1,id);
+            while (rs.next()) {
+                Inscripcion inscripcion = new Inscripcion();
+                Alumno al new Alumno();
+                Materia ma new Materia();
+                inscripcion.setIdInscripcion(rs.getInt("idInscripcion"));
+                inscripcion.setNota(rs.getDouble("nota"));
+                inscripcion.setAlumno(al.buscarAlumno(rs.getInt("idAlumno")));
+                inscripcion.setMateria(ma.buscarMateria(rs.getInt("idMateria"));
+                inscripciones.add(inscripcion);
+            }
+            ps.close();
+           
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Inscripcion "+ex.getMessage());
+        }
+        return inscripciones;
+        
     }
     
     public List<Inscripcion> obtenerMateriasCursadas(int id){
