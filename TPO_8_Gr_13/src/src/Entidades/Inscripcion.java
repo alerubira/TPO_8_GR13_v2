@@ -14,7 +14,7 @@ public class Inscripcion {
     private Alumno al;
     private Materia ma;
     private double nota;
-    public Inscripcion(int idInscripcion, Alumno al, Materia ma, int nota) {
+    public Inscripcion(int idInscripcion, Alumno al, Materia ma, double nota) {
         this.idInscripcion = idInscripcion;
         this.al = al;
         this.ma = ma;
@@ -59,8 +59,13 @@ public class Inscripcion {
         return nota;
     }
 
-    public void setNota(int nota) {
+    public void setNota(double nota) {
         this.nota = nota;
+    }
+
+    @Override
+    public String toString() {
+        return "Inscripcion{" + "idInscripcion=" + idInscripcion + ", al=" + al + ", ma=" + ma + ", nota=" + nota + '}';
     }
 
     

@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import src.Data.AlumnoData;
@@ -65,13 +66,23 @@ public class Principal {
         //    System.out.println(materia);
         //}
         
-        Alumno a = al.buscarAlumno(2);
-        Materia m = md.buscarMateria(7);
+        //Alumno a = al.buscarAlumno(2);
+        //Materia m = md.buscarMateria(7);
         
-        Inscripcion i = new Inscripcion(a, m, 0);
+        Inscripcion i = new Inscripcion();
         InscripcionData id = new InscripcionData();
         
-        id.guardarInscripcion(i);
+          List<Alumno> insc = id.obtenerAlumnosPorMateria(2);
+//        insc = id.obtenerMateriasNoCursadas(2);
+        
+        for (Alumno alumno : insc) {
+            System.out.println(alumno);
+        }
+        
+//        for (Materia inscripcion : insc) {
+//            System.out.println(inscripcion);
+//        }
+        
     }
     
 }
